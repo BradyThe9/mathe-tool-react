@@ -16,34 +16,22 @@ export default function App() {
           <div className="container mx-auto px-4">
             <ul className="flex space-x-6 py-4">
               <li>
-                <Link
-                  to="/"
-                  className="text-gray-300 hover:text-primary-hover transition-colors"
-                >
+                <Link to="/" className="text-gray-300 hover:text-primary-hover transition-colors">
                   Dashboard
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/classes"
-                  className="text-gray-300 hover:text-primary-hover transition-colors"
-                >
+                <Link to="/classes" className="text-gray-300 hover:text-primary-hover transition-colors">
                   Klassen
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/theorie"
-                  className="text-gray-300 hover:text-primary-hover transition-colors"
-                >
+                <Link to="/theorie" className="text-gray-300 hover:text-primary-hover transition-colors">
                   Theorie (alle)
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/uebungen"
-                  className="text-gray-300 hover:text-primary-hover transition-colors"
-                >
+                <Link to="/uebungen" className="text-gray-300 hover:text-primary-hover transition-colors">
                   Übungen (alle)
                 </Link>
               </li>
@@ -53,12 +41,24 @@ export default function App() {
         <main className="container mx-auto px-4">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/classes" element={<Classes />} />
-            <Route path="/classes/:klasse" element={<ClassDetail />} />
-            <Route
-              path="/classes/:klasse/:topicId"
-              element={<TopicPage />}
-            />
+
+            {/* Nested-Route für Klassen & Themen */}
+            <Route path="/classes" element={<Classes />}>
+              {/* Default-Paneel, wenn noch keine Klasse gewählt */}
+              <Route
+                index
+                element={
+                  <p className="text-gray-200">
+                    Bitte wähle eine Klasse aus der Navigation links.
+                  </p>
+                }
+              />
+              {/* /classes/:klasse */}
+              <Route path=":klasse" element={<ClassDetail />} />
+              {/* /classes/:klasse/:topicId */}
+              <Route path=":klasse/:topicId" element={<TopicPage />} />
+            </Route>
+
             <Route path="/theorie" element={<Theorie />} />
             <Route path="/uebungen" element={<Uebungen />} />
           </Routes>
