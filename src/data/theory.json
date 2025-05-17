@@ -1,0 +1,27 @@
+[
+    {
+      "title": "Kapitel 1: Bruchrechnung",
+      "content": "In diesem Kapitel lernst du, wie man Brüche addiert, subtrahiert, multipliziert und dividiert.",
+      "examples": [
+        {
+          "question": "1/2 + 1/3",
+          "answer": "5/6"
+        },
+        {
+          "question": "3/4 - 1/4",
+          "answer": "1/2"
+        }
+      ]
+    },
+    {
+      "title": "Kapitel 2: Prozentrechnung",
+      "content": "Hier erfährst du, wie man Prozentsätze berechnet und anwendet.",
+      "examples": [
+        {
+          "question": "20% von 50",
+          "answer": "10"
+        }
+      ]
+    }
+  ]
+  
