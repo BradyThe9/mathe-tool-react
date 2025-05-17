@@ -1,11 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de" class="dark">
   <head>
-    <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Mathe Tool React</title>
+
+    <!-- Tailwind per CDN mit darkMode und erweiterter Farbpalette -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            backgroundImage: {
+              'gradient-dark': 'linear-gradient(to bottom right, #111827, #4338ca, #000000)',
+            },
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#6366F1', // Indigo-500
+              hover: '#818CF8', // Indigo-400
+            },
+          },
+        },
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <div id="root"></div>

@@ -2,4 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hier kannst du später eigene Global-Styles ergänzen */
+/* Custom dark-gradient utility */
+@layer utilities {
+  .bg-gradient-dark {
+    background-image: linear-gradient(to bottom right, #111827, #4338ca, #000000);
+  }
+}

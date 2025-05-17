@@ -1,11 +1,8 @@
-// src/components/Exercise.jsx
 import React, { useState, useContext } from 'react'
 import { ProgressContext } from '../context/ProgressContext'
 
 /**
- * Props:
- *  - question: String, die Aufgabenstellung
- *  - answer:   String, die korrekte Antwort
+ * Interaktive Übung mit Dark-Mode-Styling und Animationen.
  */
 function Exercise({ question, answer }) {
   const { completed, setCompleted } = useContext(ProgressContext)
@@ -26,24 +23,28 @@ function Exercise({ question, answer }) {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow p-4 mb-4">
-      <p className="mb-2 font-medium">{question}</p>
-      <div className="flex items-center space-x-2">
+    <div className="bg-gray-800 rounded-2xl shadow-xl shadow-indigo-900 p-6 mb-6">
+      <p className="mb-3 font-medium text-gray-100">{question}</p>
+      <div className="flex items-center space-x-3">
         <input
           type="text"
           value={userAnswer}
           onChange={e => setUserAnswer(e.target.value)}
-          className="border rounded px-2 py-1 flex-1"
           placeholder="Deine Antwort"
+          className="flex-1 bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
         />
         <button
           onClick={checkAnswer}
-          className="bg-blue-600 text-white rounded px-4 py-1 hover:bg-blue-700"
+          className="bg-primary hover:bg-primary-hover text-white rounded px-5 py-2 transition transform hover:-translate-y-1"
         >
           Prüfen
         </button>
       </div>
-      {feedback && <p className="mt-2">{feedback}</p>}
+      {feedback && (
+        <p className="mt-3 text-gray-200 transition-opacity animate-fade-in">
+          {feedback}
+        </p>
+      )}
     </div>
   )
 }
