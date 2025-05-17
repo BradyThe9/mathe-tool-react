@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+// src/components/Exercise.jsx
+import React, { useState, useContext } from 'react'
+import { ProgressContext } from '../context/ProgressContext'
 
 /**
  * Props:
@@ -6,12 +8,18 @@ import React, { useState } from 'react'
  *  - answer:   String, die korrekte Antwort
  */
 function Exercise({ question, answer }) {
+  const { completed, setCompleted } = useContext(ProgressContext)
   const [userAnswer, setUserAnswer] = useState('')
   const [feedback, setFeedback] = useState(null)
+  const [answeredCorrect, setAnsweredCorrect] = useState(false)
 
   const checkAnswer = () => {
     if (userAnswer.trim() === answer) {
       setFeedback('✅ Richtig!')
+      if (!answeredCorrect) {
+        setCompleted(completed + 1)
+        setAnsweredCorrect(true)
+      }
     } else {
       setFeedback(`❌ Falsch. Die richtige Antwort ist ${answer}.`)
     }

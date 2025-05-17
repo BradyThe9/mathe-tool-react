@@ -1,10 +1,15 @@
+// src/pages/Dashboard.jsx
 import React from 'react'
 import Card from '../components/Card'
+import ProgressBar from '../components/ProgressBar'
 
 function Dashboard() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
+
+      {/* Fortschrittsanzeige */}
+      <ProgressBar />
 
       {/* Beispiel-Karten */}
       <Card title="Willkommen">
