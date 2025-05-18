@@ -8,3 +8,16 @@
     background-image: linear-gradient(to bottom right, #111827, #4338ca, #000000);
   }
 }
+
+/* Keyframes für bewegte Streifen */
+@keyframes stripe-move {
+  from { background-position: 0 0; }
+  to   { background-position: 20px 0; }
+}
+
+/* Utility, um die Streifen kontinuierlich zu animieren */
+@layer utilities {
+  .animate-stripes {
+    animation: stripe-move 1s linear infinite;
+  }
+}
